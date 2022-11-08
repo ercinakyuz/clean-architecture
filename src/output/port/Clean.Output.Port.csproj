@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Company.Framework.Data.Mongo" Version="1.0.0.4" />
+    <PackageReference Include="Company.Framework.Messaging.Kafka" Version="1.0.0.6" />
+    <PackageReference Include="Company.Framework.Messaging.RabbitMq" Version="1.0.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\input-adapters\clean-api\client\Clean.Api.Client.csproj" />
+  </ItemGroup>
+
+</Project>

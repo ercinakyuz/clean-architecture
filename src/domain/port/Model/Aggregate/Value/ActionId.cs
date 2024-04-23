@@ -1,19 +1,7 @@
-﻿using Company.Framework.Core.Identity;
+﻿using Company.Framework.Core.Id.Implementations;
 
 namespace Clean.Domain.Port.Model.Aggregate.Value
 {
-    public class ActionId : CoreId<ActionId, Guid>
-    {
-        public ActionId()
-        {
-            
-        }
-        public ActionId(Guid value) : base(value)
-        {
-        }
+    public record ActionId(Guid Value) : IdOfGuid<ActionId>(Value);
 
-        public ActionId(IdGenerationType generationType) : base(generationType)
-        {
-        }
-    }
 }

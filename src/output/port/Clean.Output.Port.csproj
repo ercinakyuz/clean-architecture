@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Company.Framework.Data.Mongo" Version="1.0.1" />
-    <PackageReference Include="Company.Framework.Messaging.Kafka" Version="1.0.1" />
-    <PackageReference Include="Company.Framework.Messaging.RabbitMq" Version="1.0.1" />
+    <PackageReference Include="Company.Framework.Data.Mongo" Version="1.0.4" />
+    <PackageReference Include="Company.Framework.Messaging.Kafka" Version="1.0.3" />
+    <PackageReference Include="Company.Framework.Messaging.RabbitMq" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>

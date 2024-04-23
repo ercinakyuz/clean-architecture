@@ -1,35 +1,17 @@
 ﻿using Clean.Domain.Port.Model.Aggregate.Converter;
 using Clean.Domain.Port.Model.Aggregate.OfWork;
+using Clean.Domain.Port.Model.Aggregate.State;
+using Clean.Domain.Port.Model.Aggregate.Value;
+using Clean.Output.Port.Data.Entities;
 using Clean.Output.Port.Data.Repositories;
+using Company.Framework.Domain.Model.Aggregate.OfWork;
 using Action = Clean.Domain.Port.Model.Aggregate.Action;
 
 namespace Clean.Domain.Adapter.Model.Aggregate.OfWork;
 
-public class ActionOfWork : IActionOfWork
+public class ActionOfWork : AggregateOfWork<IActionRepository, IActionConverter, Action, ActionId, ActionState, ActionEntity, Guid>, IActionOfWork
 {
-    private readonly IActionRepository _actionRepository;
-
-    private readonly IActionConverter _actionConverter;
-
-    public ActionOfWork(IActionRepository actionRepository, IActionConverter actionConverter)
+    public ActionOfWork(IActionRepository repository, IActionConverter converter) : base(repository, converter)
     {
-        _actionRepository = actionRepository;
-        _actionConverter = actionConverter;
-    }
-
-    public async Task InsertAsync(Action aggregate, CancellationToken cancellationToken)
-    {
-        await _actionRepository.InsertAsync(_actionConverter.Convert(aggregate));
-    }
-
-    public async Task UpdateAsync(Action aggregate, CancellationToken cancellationToken)
-    {
-        if (aggregate.HasAnyChanges())
-            await _actionRepository.UpdateAsync(_actionConverter.Convert(aggregate));
-    }
-
-    public async Task DeleteAsync(Action aggregate, CancellationToken cancellationToken)
-    {
-        await _actionRepository.DeleteAsync(aggregate.Id.Value);
     }
 }

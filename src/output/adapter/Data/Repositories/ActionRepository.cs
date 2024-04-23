@@ -5,7 +5,7 @@ using Company.Framework.Data.Mongo.Repository;
 
 namespace Clean.Output.Adapter.Data.Repositories
 {
-    public class ActionRepository : CoreOptionalMongoRepository<ActionEntity, Guid>, IActionRepository
+    public class ActionRepository : CoreMongoRepository<ActionEntity, Guid>, IActionRepository
     {
         public ActionRepository(IMongoDbContext dbContext) : base(dbContext, "actions")
         {

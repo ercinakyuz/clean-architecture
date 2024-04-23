@@ -36,7 +36,7 @@ public class PingAppliedDispatcher : CoreEventDispatcher<PingApplied>
     public override async Task DispatchAsync(Envelope<PingApplied> envelope, CancellationToken cancellationToken)
     {
         var kafkaProducerArgs = new KafkaProduceArgs("ping-applied", envelope);
-        var rabbitProducerArgs = new RabbitProduceArgs(new RabbitExchangeArgs{Name ="action", Type = "topic"}, "ping-applied", envelope);
+        var rabbitProducerArgs = new RabbitProduceArgs(new RabbitExchangeArgs { Name = "action", Type = "topic" }, "ping-applied", envelope);
         await Task.WhenAll(
             _actionKafkaProducer.ProduceAsync(kafkaProducerArgs, cancellationToken),
             _actionRabbitProducer.ProduceAsync(rabbitProducerArgs, cancellationToken)

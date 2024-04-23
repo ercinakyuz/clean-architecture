@@ -1,5 +1,7 @@
-﻿using Clean.Application.Port.Commands;
+﻿using Clean.Api.Contracts.Action.Requests;
+using Clean.Application.Port.Commands;
 using Clean.Domain.Port.Model.Aggregate.Value;
+using Company.Framework.Core.Logging;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,9 +28,9 @@ namespace Clean.Api.Controllers
 
         [HttpPatch]
         [Route("pong/{id}")]
-        public async Task<IActionResult> Pong(Guid id)
+        public async Task<IActionResult> Pong(Guid id, [FromBody] PongActionRequest request)
         {
-            await _sender.Send(new PongCommand(ActionId.From(id)));
+            await _sender.Send(new PongCommand(ActionId.From(id), Log.Load(request.By)));
             return Ok();
         }
     }

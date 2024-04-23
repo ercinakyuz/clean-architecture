@@ -2,6 +2,7 @@
 using Clean.Output.Port.Data.Repositories;
 using Company.Framework.Data.Db.Provider.Extensions;
 using Company.Framework.Data.Mongo.Extensions;
+using Company.Framework.Data.Repository.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,7 +21,7 @@ namespace Clean.Output.Adapter.Data.Extensions
         {
             return serviceCollection
                 .AddMongoDb()
-                .AddMongoRepository<IActionRepository, ActionRepository>("task-mongo", "task-mongo-context");
+                .AddMongoRepository<IActionRepository, ActionRepository>(new RepositorySettings("task-mongo", "task-mongo-context", "actions"));
         }
     }
 }

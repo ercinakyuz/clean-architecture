@@ -3,7 +3,7 @@ using Company.Framework.Data.Repository;
 
 namespace Clean.Output.Port.Data.Repositories
 {
-    public interface IActionRepository : IOptionalRepository<ActionEntity, Guid>
+    public interface IActionRepository : IRepository<ActionEntity, Guid>
     {
     }
 }

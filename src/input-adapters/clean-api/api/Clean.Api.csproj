@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Company.Framework.Api" Version="1.0.1" />
-    <PackageReference Include="Company.Framework.Logging" Version="1.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Company.Framework.Api" Version="1.0.3" />
+    <PackageReference Include="Company.Framework.Logging" Version="1.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>

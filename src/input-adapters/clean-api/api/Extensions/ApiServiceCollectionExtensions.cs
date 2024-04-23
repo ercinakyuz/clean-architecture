@@ -9,18 +9,22 @@ namespace Clean.Api.Extensions
     {
         public static IServiceCollection AddApiComponents(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddControllers()
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                });
+            return serviceCollection
+                .AddControllersWithJsonOptions()
+                .AddEndpointsApiExplorer()
+                .AddSwaggerGen()
+                .AddCorrelation()
+                .AddApiExceptionHandler()
+                .AddLocalization<CleanApiResources>();
+        }
 
-            return serviceCollection.AddEndpointsApiExplorer()
-            .AddSwaggerGen()
-            .AddCorrelation()
-            .AddApiExceptionHandler()
-            .AddLocalization<CleanApiResources>();
+        private static IServiceCollection AddControllersWithJsonOptions(this IServiceCollection serviceCollection)
+        {
+            return serviceCollection.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            }).Services;
         }
     }
 }

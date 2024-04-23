@@ -17,7 +17,7 @@ namespace Clean.PingAppliedRabbitConsumer
         }
         public async Task Handle(Envelope<PingApplied> notification, CancellationToken cancellationToken)
         {
-            await _sender.Send(new PongCommand(notification.Message.AggregateId), cancellationToken);
+            await _sender.Send(new PongCommand(notification.Message.AggregateId, notification.Created), cancellationToken);
             _logger.LogInformation("PingApplied RabbitEvent consumed, {notification}", notification);
         }
     }

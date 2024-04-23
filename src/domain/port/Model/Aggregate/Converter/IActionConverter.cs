@@ -1,8 +1,8 @@
 ﻿using Clean.Output.Port.Data.Entities;
+using Company.Framework.Domain.Model.Aggregate.Converter;
 
 namespace Clean.Domain.Port.Model.Aggregate.Converter;
 
-public interface IActionConverter
+public interface IActionConverter : IAggregateConverter<Action, ActionEntity>
 {
-    ActionEntity Convert(Action aggregate);
 }

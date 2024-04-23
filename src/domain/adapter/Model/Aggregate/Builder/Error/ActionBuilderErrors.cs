@@ -5,6 +5,6 @@ namespace Clean.Domain.Adapter.Model.Aggregate.Builder.Error
 {
     public static class ActionBuilderErrors
     {
-        public static AggregateBuilderException ActionNotFound = new(new CoreError("ACABE-1", "Action not found"));
+        public static DomainError ActionNotFound = new("ACBE-1", "Action not found");
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Clean.Domain.Port.Model.Aggregate.Value;
-using LanguageExt.Common;
+using Company.Framework.Core.Monad;
 
 namespace Clean.Domain.Port.Model.Aggregate.Builder;
 
